@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time-Zone Converter with DST</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌍 Time-Zone Converter</h1>
+            <p class="subtitle">Convert time between different time zones with DST support</p>
+        </header>
+
+        <div class="converter-section">
+            <!-- Source Time Zone -->
+            <div class="timezone-card">
+                <h2>Source Time Zone</h2>
+                <div class="input-group">
+                    <label for="source-timezone">Select Time Zone:</label>
+                    <select id="source-timezone" class="timezone-select">
+                        <option value="UTC">UTC (Coordinated Universal Time)</option>
+                        <option value="America/New_York">Eastern Time (ET)</option>
+                        <option value="America/Chicago">Central Time (CT)</option>
+                        <option value="America/Denver">Mountain Time (MT)</option>
+                        <option value="America/Los_Angeles">Pacific Time (PT)</option>
+                        <option value="Europe/London">London (GMT/BST)</option>
+                        <option value="Europe/Paris">Paris (CET/CEST)</option>
+                        <option value="Europe/Berlin">Berlin (CET/CEST)</option>
+                        <option value="Asia/Dubai">Dubai (GST)</option>
+                        <option value="Asia/Kolkata" selected>India (IST)</option>
+                        <option value="Asia/Shanghai">Shanghai (CST)</option>
+                        <option value="Asia/Tokyo">Tokyo (JST)</option>
+                        <option value="Australia/Sydney">Sydney (AEDT/AEST)</option>
+                        <option value="Pacific/Auckland">Auckland (NZDT/NZST)</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="source-date">Date:</label>
+                    <input type="date" id="source-date" class="date-input">
+                </div>
+
+                <div class="input-group">
+                    <label for="source-time">Time:</label>
+                    <input type="time" id="source-time" class="time-input">
+                </div>
+
+                <div class="dst-toggle">
+                    <label class="toggle-label">
+                        <input type="checkbox" id="source-dst" class="dst-checkbox">
+                        <span class="toggle-slider"></span>
+                        <span class="toggle-text">Apply DST</span>
+                    </label>
+                    <div class="dst-info" id="source-dst-info"></div>
+                </div>
+
+                <div class="current-time-display" id="source-display">
+                    <div class="time-label">Current Time:</div>
+                    <div class="time-value" id="source-current-time">--:--:--</div>
+                </div>
+            </div>
+
+            <!-- Conversion Arrow -->
+            <div class="arrow-container">
+                <div class="arrow">→</div>
+            </div>
+
+            <!-- Target Time Zone -->
+            <div class="timezone-card">
+                <h2>Target Time Zone</h2>
+                <div class="input-group">
+                    <label for="target-timezone">Select Time Zone:</label>
+                    <select id="target-timezone" class="timezone-select">
+                        <option value="UTC">UTC (Coordinated Universal Time)</option>
+                        <option value="America/New_York" selected>Eastern Time (ET)</option>
+                        <option value="America/Chicago">Central Time (CT)</option>
+                        <option value="America/Denver">Mountain Time (MT)</option>
+                        <option value="America/Los_Angeles">Pacific Time (PT)</option>
+                        <option value="Europe/London">London (GMT/BST)</option>
+                        <option value="Europe/Paris">Paris (CET/CEST)</option>
+                        <option value="Europe/Berlin">Berlin (CET/CEST)</option>
+                        <option value="Asia/Dubai">Dubai (GST)</option>
+                        <option value="Asia/Kolkata">India (IST)</option>
+                        <option value="Asia/Shanghai">Shanghai (CST)</option>
+                        <option value="Asia/Tokyo">Tokyo (JST)</option>
+                        <option value="Australia/Sydney">Sydney (AEDT/AEST)</option>
+                        <option value="Pacific/Auckland">Auckland (NZDT/NZST)</option>
+                    </select>
+                </div>
+
+                <div class="dst-toggle">
+                    <label class="toggle-label">
+                        <input type="checkbox" id="target-dst" class="dst-checkbox">
+                        <span class="toggle-slider"></span>
+                        <span class="toggle-text">Apply DST</span>
+                    </label>
+                    <div class="dst-info" id="target-dst-info"></div>
+                </div>
+
+                <div class="result-display" id="target-display">
+                    <div class="result-label">Converted Time:</div>
+                    <div class="result-date" id="target-date">--</div>
+                    <div class="result-time" id="target-time">--:--:--</div>
+                    <div class="result-offset" id="target-offset">UTC +0:00</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <button id="convert-btn" class="btn btn-primary">Convert Time</button>
+            <button id="swap-btn" class="btn btn-secondary">⇄ Swap Time Zones</button>
+            <button id="reset-btn" class="btn btn-tertiary">Reset</button>
+        </div>
+
+        <div class="info-section">
+            <h3>ℹ️ About DST (Daylight Saving Time)</h3>
+            <p>DST is the practice of advancing clocks during warmer months so that darkness falls at a later clock time. When enabled, the toggle adds or subtracts one hour from the standard time offset.</p>
+            <ul>
+                <li><strong>Spring Forward:</strong> Clocks move forward 1 hour (lose 1 hour)</li>
+                <li><strong>Fall Back:</strong> Clocks move back 1 hour (gain 1 hour)</li>
+                <li><strong>Note:</strong> Not all regions observe DST. The app automatically detects DST for supported time zones.</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
